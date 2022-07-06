@@ -1,11 +1,29 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import OrderScan from "../views/OrderScan.vue";
+import SafetyInspection from "../views/SafetyInspection.vue";
+import Safetyform from "../components/Safetyform.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/orderscan",
+    name: "OrderScan",
+    component: OrderScan,
+  },
+  {
+    path: "/safety-inspection",
+    name: "SafetyInspection",
+    component: SafetyInspection,
+  },
+  {
+    path: "/safety-checklist",
+    name: "Safetyform",
+    component: Safetyform,
   },
   {
     path: "/about",

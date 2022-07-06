@@ -1,7 +1,10 @@
 <template>
   <div id="nav">
+    <router-link to="/orderscan">Scan Order</router-link> |
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/safety-inspection">Safety Inspection</router-link> |
+    <router-link to="/about">About</router-link> |
+    
   </div>
   <router-view />
 </template>
@@ -15,6 +18,11 @@
   color: #2c3e50;
 }
 
+body {
+  margin: 0;
+  background: #eee;
+}
+
 #nav {
   padding: 30px;
 }
@@ -25,6 +33,6 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #b9a13f;
 }
 </style>

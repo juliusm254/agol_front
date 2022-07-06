@@ -2,20 +2,10 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">Leads</h1>                
-                               
-                <form @submit.prevent="getOrders">
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input type="text" class="input" v-model="query">
-                        </div>
-                        <div class="control">
-                            <button class="button is-success">Search</button>
-                        </div>
-                    </div>
-                </form>
+                <h1 class="title">Saaaafety</h1>
             </div>
-
+                
+            
             <div class="column is-12">
                 <table class="table is-fullwidth">
                     <thead>
@@ -40,56 +30,44 @@
                                 <td>{{ order.loaded_quantity }}</td>
                                 <td>{{ order.status }}</td>
                                 <td>{{ order.created_at }}</td>
+                                <td>
+                                <button>
+                                <router-link :to="{ name: 'Safetyform', params: { id: order.id }}" class="button is-light">Edit</router-link>
+                                </button>
+                                </td>
                                
                         </tr>
 
                     </tbody>
                 </table>
-
-                <div class="buttons">
-                    <button class="button is-light" @click="goToPreviousPage()" v-if="showPreviousButton">Prev</button>
-                    <button class="button is-light" @click="goToNextPage()" v-if="showNextButton">Next</button>
-                </div>
             </div>
-        </div>              
-        
+        </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios'
+
+    // import { toast } from 'bulma-toast'
+
     export default {
-        name: 'About',
+        name: 'SafetyInspection',
         data() {
             return {
                 orders: [],
-                showNextButton: false,
-                showPreviousButton: false,
-                currentPage: 1,
-                query: '',
-                num_orders: 0
             }
         },
         mounted() {
             this.getOrders()
         },
         methods: {
-            goToNextPage() {
-                this.currentPage += 1
-                this.getOrders()
-            },
-            goToPreviousPage() {
-                this.currentPage -= 1
-                this.getOrders()
-            },
-
             async getOrders() {
                 // this.$store.commit('setIsLoading', true)
                 this.showNextButton = false
                 this.showPreviousButton = false
 
                 await axios
-                    .get(`/operations/order/`)
+                    .get(`/operations/safety/`)
                     .then(response => {
                         console.log(response.data)
                         this.orders = response.data
@@ -118,7 +96,7 @@
                     })
                 // this.$store.commit('setIsLoading', false)
             }
+            
         }
     }
-    
 </script>
