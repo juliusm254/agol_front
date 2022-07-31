@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import OrderScan from "../views/OrderScan.vue";
 import SafetyInspection from "../views/SafetyInspection.vue";
 import Safetyform from "../components/Safetyform.vue";
+import Login from "../components/Login.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/safety-checklist",
     name: "Safetyform",
     component: Safetyform,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
   {
     path: "/about",
